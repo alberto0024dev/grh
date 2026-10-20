@@ -1,6 +1,6 @@
 # GRH · Gestión de Recursos Humanos
 
-Aplicación web para gestionar empleados, departamentos, cargos y contratos, con acceso por roles y reportes por departamento. Es mi primer proyecto completo: backend, frontend, seguridad y tests.
+Aplicación web para gestionar empleados, departamentos, cargos y contratos, con acceso por roles y reportes por departamento.
 
 ## Enfoque del proyecto
 Lo planteé como un proyecto de aprendizaje. Mi objetivo era entender cómo trabajan juntos el backend y el frontend en una aplicación real, y no quedarme solo con la teoría.
