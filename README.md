@@ -3,6 +3,7 @@
 Aplicación web para gestionar empleados, departamentos, cargos y contratos, con acceso por roles y reportes por departamento.
 
 ## Enfoque del proyecto
+Tengo la intención de seguir desarrollando y mejorando este proyecto en el futuro.
 Lo planteé como un proyecto de aprendizaje. Mi objetivo era entender cómo trabajan juntos el backend y el frontend en una aplicación real, y no quedarme solo con la teoría.
 
 - **Backend con Spring Boot:** empecé el proyecto para comenzar a aprender el framework: capas (controller, service, repository), JPA, DTOs, validación y manejo de errores.
