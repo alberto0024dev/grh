@@ -1,2 +1,0 @@
-# grh
-grh proyecto
