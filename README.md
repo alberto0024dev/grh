@@ -146,4 +146,4 @@ Cubren los servicios (reglas de negocio y acceso por rol), los controllers (vali
 
 ## Autor
 
-Alberto · [GitHub](https://github.com/alberto0024dev)
+Alberto Comendador · [GitHub](https://github.com/alberto0024dev)
