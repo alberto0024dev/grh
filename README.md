@@ -15,8 +15,7 @@ Lo planteé como un proyecto de aprendizaje, en el que iba dedicando un rato cad
 Es mi primer proyecto completo, así que prioricé buscar información y desarrollar el proyecto utilizando IA para aprender y cuestionar por que se hacía cada cosa.
 
 ## Demo
-
-[Ver demo en YouTube](https://www.youtube.com/watch?v=ID_DEL_VIDEO)
+https://youtu.be/T87JOy_MqXE?si=lT6RGE_R1sOT_zp2
 
 ## Qué hace
 
