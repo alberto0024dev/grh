@@ -1,0 +1,582 @@
+/* ---------- Base ---------- */
+:root {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: #1f2937;
+  background: #f3f4f6;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;   /* el padding no agranda las cajas */
+}
+
+body {
+  margin: 0;
+}
+
+h1 { margin: 0 0 1.25rem; font-size: 1.75rem; }
+h2 { margin: 1.5rem 0 0.75rem; font-size: 1.3rem; }
+h3 { margin: 1.25rem 0 0.5rem; font-size: 1.1rem; }
+
+
+/* ---------- Formularios ---------- */
+form {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+select[multiple] {
+  height: 7rem;
+}
+
+/* ---------- Botones ---------- */
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+button:hover {
+  background: #1d4ed8;
+}
+button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ---------- Tablas ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;   /* une los bordes de las celdas */
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+th {
+  text-align: left;
+  background: #e5e7eb;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+th,
+td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+tbody tr:hover {
+  background: #f9fafb;
+}
+td button {
+  margin-right: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+/* ---------- Layout con menú lateral ---------- */
+.app-layout {
+  display: flex;              /* menú y contenido, uno al lado del otro */
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;             /* el menú nunca se encoge */
+  position: sticky;           /* se queda fijo al hacer scroll */
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;     /* marca arriba, enlaces en medio, ajustes abajo */
+  background: #2d3561;
+  color: white;
+  padding: 1rem 0;
+}
+
+.sidebar-brand {
+  padding: 0 1.25rem 1rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.sidebar-brand small {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+}
+.sidebar-brand strong {
+  font-size: 1.15rem;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  flex: 1;                    /* ocupa el espacio libre y empuja lo de abajo */
+}
+
+.sidebar a {
+  padding: 0.65rem 1.25rem;
+  color: #dfe3f5;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.sidebar a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+.sidebar a.active {           /* la clase que pone NavLink solo */
+  background: #7a3fb0;
+  color: white;
+  font-weight: 700; /* solo el activo va en grita*/
+}
+
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 0.5rem;
+}
+
+.sidebar-logout {
+  margin: 0.75rem 1.25rem 0;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.sidebar-logout:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;               /* evita que una tabla ancha desborde la pantalla */
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ---------- Reportes ---------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  @media (max-width: 1200px) {
+    .cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+/* Sin esto, un gráfico ancho puede empujar la columna y descuadrar el grid */
+.charts-grid > *,
+.bottom-grid > * {
+  min-width: 0;
+}
+
+.card,
+.panel {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.card {
+  padding: 1rem 1.25rem;
+}
+.card-title {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+.card-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.panel {
+  padding: 1rem 1.25rem;
+}
+.panel h3 {
+  margin-top: 0;
+}
+/* La tabla ya va dentro de una tarjeta: quitamos su propia sombra para no duplicarla */
+.panel table {
+  box-shadow: none;
+  border-radius: 0;
+}
+.panel th {
+  background: transparent;
+  color: #6b7280;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.negative {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* Pantallas estrechas: una columna */
+@media (max-width: 1000px) {
+  .charts-grid,
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 700px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Formularios de una columna ---------- */
+.page-narrow {
+  max-width: 480px;
+  margin: 0 auto;             /* centra la columna (título y formulario) */
+}
+
+.form-wide h3 {
+  margin-top: 0;
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;     /* un campo debajo de otro */
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;     /* etiqueta encima del campo */
+  gap: 0.3rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;  /* botón a la derecha */
+  gap: 0.5rem;
+}
+
+/* ---------- Página con lista + formulario lateral ---------- */
+.split-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;     /* cada columna mide lo que necesita */
+}
+
+.split-main {
+  flex: 1;                     /* la tabla ocupa todo el espacio libre */
+  min-width: 0;
+}
+
+.split-side {
+  width: 320px;
+  flex-shrink: 0;
+  position: sticky;            /* sigue visible al hacer scroll en una lista larga */
+  top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.split-side h3 {
+  margin: 0;                   /* quita el hueco de arriba */
+}
+
+@media (max-width: 900px) {
+  .split-layout {
+    flex-direction: column;
+  }
+  .split-side {
+    width: 100%;
+    position: static;
+  }
+}
+
+/* ---------- Botones secundarios y de peligro ---------- */
+.btn-secondary {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+.btn-secondary:hover {
+  background: #d1d5db;
+}
+.btn-danger {
+  background: #dc2626;
+}
+.btn-danger:hover {
+  background: #b91c1c;
+}
+
+/* ---------- Tabla: acciones y fila en edición ---------- */
+th.actions,
+td.actions {
+  text-align: right;
+  white-space: nowrap;
+}
+.editing-row {
+  background: #eef2ff;
+}
+
+/* ---------- Etiquetas de color ---------- */
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.badge-junior      { background: #dcfce7; color: #166534; }
+.badge-senior      { background: #dbeafe; color: #1e40af; }
+.badge-lead        { background: #fef3c7; color: #92400e; }
+.badge-manager     { background: #f3e8ff; color: #6b21a8; }
+.badge-available   { background: #dcfce7; color: #166534; }
+.badge-occupied    { background: #fee2e2; color: #991b1b; }
+.badge-maintenance { background: #fef3c7; color: #92400e; }
+.badge-active   { background: #dcfce7; color: #166534; }
+.badge-inactive { background: #fee2e2; color: #991b1b; }
+
+/* ---------- Mensajes ---------- */
+.msg-error   { color: #dc2626; }
+.msg-success { color: #16a34a; }
+
+/* ---------- Avisos y textos de ayuda ---------- */
+.notice {
+  background: #fef3c7;
+  color: #78350f;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* ---------- Login ---------- */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;          /* centrado vertical */
+  justify-content: center;      /* centrado horizontal */
+  background: linear-gradient(135deg, #2d3561 0%, #7a3fb0 100%);
+  padding: 1rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.login-brand {
+  background: #2d3561;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+.login-brand strong {
+  display: block;
+  font-size: 1.5rem;
+}
+.login-brand span {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* El form global ya trae fondo, sombra y padding: aquí los quitamos porque la tarjeta ya los tiene */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  box-shadow: none;
+  border-radius: 0;
+}
+.login-form h1 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+
+/* El enlace de ajustes de cuenta, más discreto que los de navegación */
+.sidebar-bottom a {
+  margin: 0 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+}
+
+/* ---------- Campos obligatorios ---------- */
+label.required::after {
+  content: ' *';
+  color: #dc2626;
+}
+
+.required-note {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+.required-note span {
+  color: #dc2626;
+}
+input:disabled {
+  background: #f3f4f6;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+/* Botones al pie de una tarjeta, alineados a la derecha */
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+/* ---------- Tarjetas de datos (perfil y contrato) ---------- */
+.data-card {
+  margin-bottom: 1rem;
+}
+.data-card h3 {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.6rem;
+  font-size: 1.15rem;
+  border-bottom: 1px solid #e5e7eb;   /* separa el título del contenido */
+}
+.data-card p {
+  margin: 0.4rem 0;
+}
+.label {
+  color: #6b7280;                     /* gris: la etiqueta es secundaria */
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Formulario dentro de una tarjeta: sin fondo, sombra ni padding propios,
+   para no tener una tarjeta dentro de otra */
+.form-inline {
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* ---------- Filtros de Reportes ---------- */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.toolbar .field {
+  min-width: 190px;
+}
+
+/* Tabla con scroll interno y cabecera fija */
+.scroll-box {
+  max-height: 320px;
+  overflow-y: auto;
+}
+.scroll-box th {
+  position: sticky;
+  top: 0;
+  background: white;
+}
+
+/* ---------- Página 404 ---------- */
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.not-found h1 {
+  font-size: 5rem;
+  margin: 0;
+  color: #2d3561;
+}
+
+/* ---------- Modal de confirmación ---------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.modal h3 { margin: 0 0 0.5rem; }
+.modal p { margin: 0 0 1.25rem; color: #4b5563; }
+
+.page-medium {
+  max-width: 720px;
+}
