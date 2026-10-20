@@ -136,7 +136,7 @@ Cubren los servicios (reglas de negocio y acceso por rol), los controllers (vali
 - Implementar mas funcionalidades (sin requisitos me cuesta que implementar).
 - Actualmente JWT en localStorage
 - Implementar JWT con HttpOnly con Samesite
-- Tests de frontend (Vitest y React Testing Library) y cobertura con JaCoCo.
+- Testing en frontend.
 - Desplegar la aplicación
 
 ## Autor
